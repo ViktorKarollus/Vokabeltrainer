@@ -1,0 +1,10 @@
+{
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.screenReaderAnnounceInlineSuggestion": false,
+    "editor.quickSuggestions": {
+
+        "other": "off",
+        "comments": "off",
+        "strings": "off"
+    }
+}
