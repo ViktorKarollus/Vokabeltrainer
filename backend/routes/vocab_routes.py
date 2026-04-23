@@ -89,8 +89,10 @@ def get_user_lessons_route(username):
     lessons = get_user_lessons(username)
     return jsonify([{
         "lesson_name": lesson.lesson_name,
-        "user_id": lesson.user_id
+        "user_id": lesson.user_id,
+        "id":lesson.id
     } for lesson in lessons]), 200
+
 
 @vocab_routes.route('/users/<username>/lessons/<lesson_name>', methods=['DELETE'])# Delete a lesson for a user
 def delete_lesson_route(username, lesson_name):

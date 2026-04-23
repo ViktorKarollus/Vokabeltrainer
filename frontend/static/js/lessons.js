@@ -44,6 +44,14 @@ list.innerHTML="";
  lessons.forEach(lesson => {
     const li = document.createElement("li");
     li.textContent = lesson.lesson_name;
+    const button=document.createElement("button");
+    button.textContent="Alter";
+    button.style.marginLeft = "10px";
+    button.addEventListener("click", () => {
+    localStorage.setItem("lessonId", lesson.id);
+    window.location.href = `${API_BASE_URL}/alterlesson`;
+});
+    li.appendChild(button);
     list.appendChild(li);
   });
 }
