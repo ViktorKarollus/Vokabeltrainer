@@ -48,10 +48,27 @@ list.innerHTML="";
     button.textContent="Alter";
     button.style.marginLeft = "10px";
     button.addEventListener("click", () => {
-    localStorage.setItem("lessonId", lesson.id);
+    localStorage.setItem("lessonName", lesson.lesson_name);
     window.location.href = `${API_BASE_URL}/alterlesson`;
 });
     li.appendChild(button);
     list.appendChild(li);
   });
+}
+export async function deleteLesson(){
+    const deleteButton = document.getElementById("delete-lesson");//delete-Button in alterlesson.html +redirect back to practise
+  if (deleteButton) {
+    const user= await checkAuth();
+    if(!user)return;
+    const username=user.username;
+    const lesson_name=localStorage.getItem("lessonName");
+    deleteButton.addEventListener("click",async () => {
+      const response= await fetch (`${API_BASE_URL}/api/users/${username}/lessons/${lesson_name}`,{
+    method:"DELETE",
+    credentials:"include"
+    
+});
+      window.location.href = `${API_BASE_URL}/practice`;
+    });
+  }
 }
