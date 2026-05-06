@@ -47,8 +47,8 @@ list.innerHTML="";
     const button=document.createElement("button");
     button.textContent="Alter";
     button.style.marginLeft = "10px";
-    button.addEventListener("click", () => {
     localStorage.setItem("lessonName", lesson.lesson_name);
+    button.addEventListener("click", () => {
     window.location.href = `${API_BASE_URL}/alterlesson`;
 });
     li.appendChild(button);
