@@ -2,6 +2,7 @@ import {nav} from "./nav.js";
 import {deleteLesson} from "./lessons.js";
 import {checkAuth} from "./auth.js";
 import {initVocab} from "./vocab.js";
+import {loadCsv} from "./vocab.js";
 document.addEventListener("DOMContentLoaded", async () => {
  const usernamePlaceholder = document.getElementById("username-placeholder"); //Element in dashboard.html to display username and check if user is authenticated
 if (usernamePlaceholder) {
@@ -14,4 +15,5 @@ document.getElementById("lesson-title").textContent = lessonName;//shows the les
 nav();
 deleteLesson();
 initVocab();
+document.getElementById("uploadBtn").addEventListener("click",loadCsv);
 });

@@ -73,4 +73,43 @@ async function deleteVocab(){
 await loadVocab();
 }
 
+async function getCsv(file){
+
+    const text = await file.text();
+
+    const lines = text.split("\n").filter(line => line.trim() !== "");
+
+const vocabList = lines.map(line => {
+    const [foreign, native] = line.split(",");
+
+    return {
+        word_foreign: foreign.trim(),
+        word_native: native.trim()
+    };
+});
+return vocabList;
+}
+export async function loadCsv(){
+const user= await checkAuth();
+if(!user)return;
+const username=user.username;
+const lesson_name=localStorage.getItem("lessonName");
+const fileInput = document.getElementById("csvFile");
+const file = fileInput.files[0];
+if (!file) {
+    console.log("Keine Datei ausgewählt");
+    return;
+}
+ const vocabList= await getCsv(file);
+ for (const vocabulary of vocabList) {
+await fetch (`${API_BASE_URL}/api/users/${username}/lessons/${lesson_name}/vocab`,{
+    method:"POST",
+    headers: { "Content-Type": "application/json" },
+    credentials:"include",
+    body: JSON.stringify({word_native:vocabulary.word_native,word_foreign:vocabulary.word_foreign})
+});
+ }
+await loadVocab();
+}
+
 
