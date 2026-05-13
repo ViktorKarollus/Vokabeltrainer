@@ -1,4 +1,5 @@
 import {checkAuth} from "./auth.js";
+import {loadVocabsOfLesson} from "./vocab.js";
 const API_BASE_URL = window.location.origin;
 export function initLessons() {
 const addLessonForm = document.getElementById('add-lesson-form');
@@ -47,11 +48,19 @@ list.innerHTML="";
     const button=document.createElement("button");
     button.textContent="Alter";
     button.style.marginLeft = "10px";
-    localStorage.setItem("lessonName", lesson.lesson_name);
+    const addbutton=document.createElement("button");
+    addbutton.textContent="add";
+    addbutton.style.marginRight = "30px";
+      addbutton.addEventListener("click", async () => {
+      localStorage.setItem("lessonName", lesson.lesson_name);
+    await loadVocabsOfLesson(lesson.lesson_name);
+});
     button.addEventListener("click", () => {
+      localStorage.setItem("lessonName", lesson.lesson_name);
     window.location.href = `${API_BASE_URL}/alterlesson`;
 });
     li.appendChild(button);
+    li.appendChild(addbutton);
     list.appendChild(li);
   });
 }

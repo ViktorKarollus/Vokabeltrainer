@@ -52,20 +52,18 @@ const li = document.createElement("li");
     button.textContent="Delete";
     button.style.marginLeft = "10px";
     button.id="delete-button";
-    localStorage.setItem("word_foreign", vocab.word_foreign);
     button.addEventListener("click",async () => {
-     await deleteVocab();
+     await deleteVocab(vocab.word_foreign);
     });
     li.appendChild(button);
     list.appendChild(li);
 });
 }
-async function deleteVocab(){
+async function deleteVocab(word_foreign){
     const user= await checkAuth();
     if(!user)return;
     const username=user.username;
     const lesson_name=localStorage.getItem("lessonName");
-    const word_foreign=localStorage.getItem("word_foreign");
     const response= await fetch (`${API_BASE_URL}/api/users/${username}/lessons/${lesson_name}/vocab/${word_foreign}`,{
     method:"DELETE",
     credentials:"include"
@@ -110,6 +108,25 @@ await fetch (`${API_BASE_URL}/api/users/${username}/lessons/${lesson_name}/vocab
 });
  }
 await loadVocab();
+}
+
+
+
+
+export async function loadVocabsOfLesson(lesson_name) {
+const user= await checkAuth();
+if(!user)return;
+const username=user.username;
+const response= await fetch (`${API_BASE_URL}/api/users/${username}/lessons/${lesson_name}/vocab`,{
+    credentials:"include"
+});
+if(!response.ok){
+console.error("Failed to load vocabs");
+    return;
+}
+ const vocabs = await response.json();
+
+    console.log(vocabs);
 }
 
 
