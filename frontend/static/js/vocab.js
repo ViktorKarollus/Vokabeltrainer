@@ -125,8 +125,10 @@ console.error("Failed to load vocabs");
     return;
 }
  const vocabs = await response.json();
-
-    console.log(vocabs);
+    return vocabs;
 }
+
+
+
 
 

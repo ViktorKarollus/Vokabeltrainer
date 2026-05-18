@@ -1,5 +1,6 @@
 import {checkAuth} from "./auth.js";
 import {loadVocabsOfLesson} from "./vocab.js";
+import {makePracticeList} from "./practicelogic.js";
 const API_BASE_URL = window.location.origin;
 export function initLessons() {
 const addLessonForm = document.getElementById('add-lesson-form');
@@ -53,7 +54,8 @@ list.innerHTML="";
     addbutton.style.marginRight = "30px";
       addbutton.addEventListener("click", async () => {
       localStorage.setItem("lessonName", lesson.lesson_name);
-    await loadVocabsOfLesson(lesson.lesson_name);
+   const vocabListForPractice= await loadVocabsOfLesson(lesson.lesson_name);
+  makePracticeList(vocabListForPractice);
 });
     button.addEventListener("click", () => {
       localStorage.setItem("lessonName", lesson.lesson_name);

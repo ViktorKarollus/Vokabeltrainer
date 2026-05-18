@@ -30,7 +30,8 @@ def get_lesson_vocab_route(username, lesson_name):
     return jsonify([{
         "word_foreign": vocab.word_foreign,
         "word_native": vocab.word_native,
-        "vocab_phase": vocab.vocab_phase
+        "vocab_phase": vocab.vocab_phase,
+        "lesson_name":lesson_name
     } for vocab in vocabularies]), 200
 
 @vocab_routes.route('/users/<username>/lessons', methods=['POST'])# Create a new lesson for a user
