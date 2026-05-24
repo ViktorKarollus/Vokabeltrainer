@@ -3,20 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/dashboardstyle.css">
     <script type="module" src="static/js/dashboard.js"></script>
     <title>Document</title>
 </head>
 <body>
-<nav>
-    <button id="dashboard-btn">Dashboard</button>
-    <button id="stats-btn">Stats</button>
-    <button id="practice-btn">Practice</button>
-</nav>
-    <h1>Dashboard</h1>
-    <p>Welcome to the dashboard!</p>
-<span id="username-placeholder"></span>
-<form id="logout-form">
-    <button type="submit">Logout</button>
-</form>
+     <nav class="navbar">
+
+        <div class="logo">
+            VokabelTrainer
+        </div>
+
+        <div class="nav-links">
+
+            <button id="dashboard-btn" class="nav-btn active">
+                Dashboard
+            </button>
+
+            <button id="stats-btn" class="nav-btn">
+                Stats
+            </button>
+
+            <button id="practice-btn" class="nav-btn">
+                Practice
+            </button>
+
+        </div>
+
+    </nav>
+
+    <main class="main-content">
+
+        <div class="dashboard-card">
+
+            <h1>Dashboard</h1>
+
+            <p class="welcome-text">
+                Willkommen zurück,
+                <span id="username-placeholder"></span>
+            </p>
+
+            <div class="dashboard-box">
+
+                <h2>Bereit zu lernen?</h2>
+
+                <p>
+                    Starte deine nächste Session und verbessere deine Vokabelkenntnisse.
+                </p>
+
+            </div>
+
+            <form id="logout-form">
+
+                <button type="submit" class="logout-btn">
+                    Logout
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
 </body>
 </html>

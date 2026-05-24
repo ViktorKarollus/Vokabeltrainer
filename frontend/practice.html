@@ -4,39 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="static/js/practice.js"></script>
+    <link rel="stylesheet" href="static/css/practicestyle.css">
     <title>Practice</title>
 </head>
 <body>
-    <nav>
-    <button id="dashboard-btn">Dashboard</button>
-    <button id="stats-btn">Stats</button>
-    <button id="practice-btn">Practice</button>
-</nav>
-<h1>Practice</h1>
-<span id="username-placeholder"></span>
-<button id="start-practice">
-    Start practicing
-</button>
-<form id="practice-form">
-    <span id="vocab-placeholder"></span><br><br>
+<nav class="navbar">
 
-    <input type="text" id="vocab-solution" required><br><br>
+        <div class="logo">
+            VokabelTrainer
+        </div>
 
-    <button type="submit">Submit</button>
+        <div class="nav-links">
 
-    <p id="feedback"></p>
-    <p id="correct-answer"></p>
-</form>
-<h2>Add New Lesson</h2>
-<form id="add-lesson-form">
-    <label for="lesson-name">Lesson Name:</label>
-    <input type="text" id="lesson-name" required><br><br>
-    <button type="submit">Add Lesson</button>
-</form>
-<form id="clear-lesson">
-<button type="submit">Clear Lesson</button>
-</form>
-<h2>Lessons</h2>
-<ul id="lessons-list"></ul>
+            <button id="dashboard-btn" class="nav-btn">
+                Dashboard
+            </button>
+
+            <button id="stats-btn" class="nav-btn">
+                Stats
+            </button>
+
+            <button id="practice-btn" class="nav-btn active">
+                Practice
+            </button>
+
+        </div>
+
+    </nav>
+
+    <main class="main-content">
+
+        <div class="practice-layout">
+
+            <!-- PRACTICE CARD -->
+
+            <section class="practice-card">
+
+                <h1>Practice</h1>
+
+                <p class="welcome-text">
+                    Lernen mit
+                    <span id="username-placeholder"></span>
+                </p>
+
+                <button id="start-practice" class="primary-btn">
+                    Start practicing
+                </button>
+
+                <form id="practice-form">
+
+                    <div class="vocab-box">
+                        <span id="vocab-placeholder"></span>
+                    </div>
+
+                    <input
+                        type="text"
+                        id="vocab-solution"
+                        placeholder="Deine Antwort..."
+                        required
+                    >
+
+                    <button type="submit" class="primary-btn">
+                        Submit
+                    </button>
+
+                    <p id="feedback" class="feedback-text"></p>
+
+                    <p id="correct-answer" class="correct-answer"></p>
+
+
+                </form>
+ <form id="clear-lesson">
+
+                    <button type="submit" class="danger-btn">
+                        Clear Lesson
+                    </button>
+
+                </form>
+            </section>
+
+            <!-- LESSON MANAGEMENT -->
+
+            <section class="lesson-card">
+
+                <h2>Add New Lesson</h2>
+
+                <form id="add-lesson-form">
+
+                    <input
+                        type="text"
+                        id="lesson-name"
+                        placeholder="Lesson name"
+                        required
+                    >
+
+                    <button type="submit" class="primary-btn">
+                        Add Lesson
+                    </button>
+
+                </form>
+
+
+            </section>
+
+            <!-- LESSON LIST -->
+
+            <section class="lesson-list-card">
+
+                <h2>Lessons</h2>
+
+                <ul id="lessons-list"></ul>
+
+            </section>
+
+        </div>
+
+    </main>
+
 </body>
 </html>

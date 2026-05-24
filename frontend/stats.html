@@ -5,16 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="static/js/stats.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <link rel="stylesheet" href="static/css/statsstyle.css">
     <title>Stats</title>
 </head>
-<body>
-    <nav>
-    <button id="dashboard-btn">Dashboard</button>
-    <button id="stats-btn">Stats</button>
-    <button id="practice-btn">Practice</button>
-</nav>
-    <h1>Statistics</h1>
-    <span id="username-placeholder"></span>
-    <canvas id="phaseChart"></canvas>
-</body>
+    <nav class="navbar">
+
+        <div class="logo">
+            VokabelTrainer
+        </div>
+
+        <div class="nav-links">
+
+            <button id="dashboard-btn" class="nav-btn">
+                Dashboard
+            </button>
+
+            <button id="stats-btn" class="nav-btn active">
+                Stats
+            </button>
+
+            <button id="practice-btn" class="nav-btn">
+                Practice
+            </button>
+
+        </div>
+
+    </nav>
+
+    <main class="main-content">
+
+        <div class="stats-card">
+
+            <h1>Statistiken</h1>
+
+            <p class="welcome-text">
+                Lernfortschritt von
+                <span id="username-placeholder"></span>
+            </p>
+
+            <div class="chart-container">
+                <canvas id="phaseChart"></canvas>
+            </div>
+
+        </div>
+
+    </main>
 </html>

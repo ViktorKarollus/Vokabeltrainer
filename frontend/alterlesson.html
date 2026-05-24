@@ -4,29 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="static/js/alterlessonpage.js"></script>
+    <link rel="stylesheet" href="static/css/alterlessonstyle.css">
     <title>Alter lesson</title>
 </head>
 <body>
-    <nav>
-    <button id="dashboard-btn">Dashboard</button>
-    <button id="stats-btn">Stats</button>
-    <button id="practice-btn">Practice</button>
-</nav>
-<h1 id="lesson-title"></h1>
-<span id="username-placeholder"></span>
-<button id="delete-lesson">Delete lesson</button>
-<h2>Add Vocabularys to Lesson</h2>
-<form id="add-vocab">
-    <label for="vocab-native">Native-Vocab:</label>
-    <input type="text" id="vocab-native" required><br><br>
-    <label for="vocab-foreign">Foreign-Vocab:</label>
-    <input type="text" id="vocab-foreign" required><br><br>
-    <button type="submit">Add Vocab</button>
-</form>
-<h2>Load Vocab</h2>
-<input type="file" id="csvFile">
-<button id="uploadBtn">Upload</button>
-<h2>Vocab:</h2>
-<ul id="vocab-list"></ul>
+ <nav class="navbar">
+
+        <div class="logo">
+            VokabelTrainer
+        </div>
+
+        <div class="nav-links">
+
+            <button id="dashboard-btn" class="nav-btn">
+                Dashboard
+            </button>
+
+            <button id="stats-btn" class="nav-btn">
+                Stats
+            </button>
+
+            <button id="practice-btn" class="nav-btn active">
+                Practice
+            </button>
+
+        </div>
+
+    </nav>
+
+    <main class="main-content">
+
+        <div class="lesson-layout">
+
+            <!-- HEADER -->
+
+            <section class="lesson-header-card">
+
+                <h1 id="lesson-title"></h1>
+
+                <p class="welcome-text">
+                    Bearbeitet von
+                    <span id="username-placeholder"></span>
+                </p>
+
+                <button id="delete-lesson" class="danger-btn">
+                    Delete lesson
+                </button>
+
+            </section>
+
+            <!-- ADD VOCAB -->
+
+            <section class="lesson-card">
+
+                <h2>Add Vocabulary</h2>
+
+                <form id="add-vocab">
+
+                    <input
+                        type="text"
+                        id="vocab-native"
+                        placeholder="Native vocabulary"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        id="vocab-foreign"
+                        placeholder="Foreign vocabulary"
+                        required
+                    >
+
+                    <button type="submit" class="primary-btn">
+                        Add Vocab
+                    </button>
+
+                </form>
+
+            </section>
+
+            <!-- CSV UPLOAD -->
+
+            <section class="lesson-card">
+
+                <h2>Load Vocabulary</h2>
+
+                <div class="upload-container">
+
+                    <input type="file" id="csvFile">
+
+                    <button id="uploadBtn" class="secondary-btn">
+                        Upload CSV
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- VOCAB LIST -->
+
+            <section class="lesson-card">
+
+                <h2>Vocabulary List</h2>
+
+                <ul id="vocab-list"></ul>
+
+            </section>
+
+        </div>
+
+    </main>
 </body>
 </html>

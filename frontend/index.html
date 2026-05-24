@@ -3,29 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/css/style.css">
   <script src="static/js/login.js"></script>
   <title>Login</title>
 </head>
 <body>
 
-  <h1>Welcome</h1>
+ <div class="container">
+    <div class="card">
 
-  <form id="login-form">
-    <label>
-      Username:
-      <input type="text" id="username" required>
-    </label>
-    <br>
+      <h1>Willkommen</h1>
+      <p class="subtitle">Melde dich bei deinem Vokabeltrainer an</p>
 
-    <label>
-      Password:
-      <input type="password" id="password" required>
-    </label>
-    <br>
+      <form id="login-form">
 
-    <button type="submit">Login</button>
-  </form>
+        <div class="input-group">
+          <label for="username">Benutzername</label>
+          <input type="text" id="username" required>
+        </div>
 
-<button id="register-button">Register</button>
+        <div class="input-group">
+          <label for="password">Passwort</label>
+          <input type="password" id="password" required>
+        </div>
+
+        <button type="submit" class="primary-btn">
+          Login
+        </button>
+
+      </form>
+
+      <button id="register-button" class="secondary-btn">
+        Registrieren
+      </button>
+
+    </div>
+  </div>
 </body>
 </html>

@@ -4,17 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="static/js/register.js"></script>
+    <link rel="stylesheet" href="static/css/style.css">
     <title>Registrieren</title>
 </head>
 <body>
-    <h1>Registrieren</h1>
-    <form id="register-form">
-        <label for="username">Benutzername:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Passwort:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        <button type="submit">Registrieren</button>
-    </form>
-    <button id="back-to-login">Zurück zum Login</button>
+<div class="container">
+        <div class="card">
+
+            <h1>Registrieren</h1>
+            <p class="subtitle">Erstelle deinen Account</p>
+
+            <form id="register-form">
+
+                <div class="input-group">
+                    <label for="username">Benutzername</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Passwort</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <button type="submit" class="primary-btn">
+                    Registrieren
+                </button>
+
+            </form>
+
+            <button id="back-to-login" class="secondary-btn">
+                Zurück zum Login
+            </button>
+
+        </div>
+    </div>
 </body>
 </html>

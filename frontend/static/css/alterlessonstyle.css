@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(135deg, #141e30, #243b55);
+
+    color: white;
+
+    min-height: 100vh;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 40px;
+
+    background: rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(255,255,255,0.16);
+
+    transform: translateY(-1px);
+}
+
+.nav-btn.active {
+    background: #2563eb;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.main-content {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 50px 20px;
+}
+
+.lesson-layout {
+    width: 100%;
+    max-width: 1000px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.lesson-card,
+.lesson-header-card {
+
+    background: rgba(255,255,255,0.08);
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    border-radius: 24px;
+
+    padding: 35px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.3);
+}
+
+.lesson-header-card h1 {
+    font-size: 2.2rem;
+
+    margin-bottom: 10px;
+}
+
+.welcome-text {
+    color: #cfcfcf;
+
+    margin-bottom: 25px;
+}
+
+.lesson-card h2 {
+    margin-bottom: 20px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input[type="text"] {
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 20px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.12);
+
+    color: white;
+
+    font-size: 1rem;
+}
+
+input[type="text"]:focus {
+    outline: none;
+
+    background: rgba(255,255,255,0.18);
+
+    box-shadow:
+        0 0 0 2px #4da3ff;
+}
+
+input::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+/* =========================
+   FILE INPUT
+========================= */
+
+.upload-container {
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+input[type="file"] {
+    color: white;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    border: none;
+
+    padding: 14px 20px;
+
+    border-radius: 14px;
+
+    color: white;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.primary-btn {
+    background: #2563eb;
+
+    width: 100%;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background: rgba(255,255,255,0.08);
+
+    border:
+        1px solid rgba(255,255,255,0.12);
+}
+
+.secondary-btn:hover {
+    background: rgba(255,255,255,0.16);
+}
+
+.danger-btn {
+    background: rgba(255, 95, 95, 0.18);
+
+    border:
+        1px solid rgba(255, 95, 95, 0.3);
+}
+
+.danger-btn:hover {
+    background: rgba(255, 95, 95, 0.28);
+
+    transform: translateY(-2px);
+}
+
+/* =========================
+   VOCAB LIST
+========================= */
+
+#vocab-list {
+    list-style: none;
+
+    margin-top: 20px;
+}
+
+#vocab-list li {
+
+    padding: 16px;
+
+    margin-bottom: 12px;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.05);
+
+    border:
+        1px solid rgba(255,255,255,0.05);
+}
+#vocab-list button {
+
+    background: rgba(255, 95, 95, 0.18);
+
+    color: white;
+
+    border: 1px solid rgba(255, 95, 95, 0.3);
+
+    padding: 8px 14px;
+
+    border-radius: 10px;
+
+    margin-left: 12px;
+
+    transition: 0.2s ease;
+}
+#vocab-list button:hover {
+
+    background: rgba(255, 95, 95, 0.28);
+
+    transform: translateY(-1px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        flex-direction: column;
+
+        gap: 20px;
+
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .lesson-card,
+    .lesson-header-card {
+        padding: 25px;
+    }
+
+    .lesson-header-card h1 {
+        font-size: 1.8rem;
+    }
+}
