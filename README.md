@@ -6,6 +6,8 @@ The project supports users, lessons, vocabulary entries, learning phases, and st
 The backend is designed API-first, follows a clear separation of concerns (routes, logic, database)
 Features
 
+(Frontend info)(dockeretc)
+
 👤 User management
 
 User registration
@@ -36,10 +38,6 @@ Incorrect answers trigger a defined fallback logic
 
 📊 Statistics
 
-Total vocabulary count
-
-Learned vocabulary count
-
 Phase distribution overview
 
 🔐 Security
@@ -61,12 +59,12 @@ Flask – web framework
 
 Flask-SQLAlchemy – ORM and database integration
 
-SQLite – local development database
+(Postgres)
 
 Tools – password hashing and security utilities
 
 Pytest – unit testing framework
-
+(frontend)(dockeretc)
 
 🌐 API Overview
 
@@ -91,7 +89,7 @@ Learning & Statistics
 POST /vocab/answer
 GET  /users/<username>/stats
 
-
+(missing)
 
 🔐 Authentication & Security
 
