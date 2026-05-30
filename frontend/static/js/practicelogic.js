@@ -1,6 +1,7 @@
 import {checkAuth} from "./auth.js";
 const API_BASE_URL = window.location.origin;
 const practiceList=[];
+
 export async function startPracticeVocab(){
 if(practiceList.length===0){
 alert("Please load a lesson");
@@ -8,6 +9,12 @@ alert("Please load a lesson");
 await practiceVocab();
 }
 }
+/**
+  Starts the vocabulary practice session.
+  The user is shown one vocabulary at a time and answers
+  are sent to the backend. Incorrectly answered vocabulary
+  is added back to the end of the practice list.
+ */
  async function practiceVocab(){
     const user= await checkAuth();
     if(!user)return;

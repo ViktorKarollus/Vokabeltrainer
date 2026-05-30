@@ -2,6 +2,10 @@ import {checkAuth} from "./auth.js";
 import {loadVocabsOfLesson} from "./vocab.js";
 import {makePracticeList} from "./practicelogic.js";
 const API_BASE_URL = window.location.origin;
+/**
+  Initializes the lesson page by registering event handlers
+  and loading all available lessons.
+ */
 export function initLessons() {
 const addLessonForm = document.getElementById('add-lesson-form');
 if (addLessonForm) {
@@ -9,6 +13,8 @@ addLessonForm.addEventListener("submit", handleAddLesson);
 }
 loadLessons();
 }
+/*add a lesson to the backend and calls loadLessons
+*/
 async function handleAddLesson(e) {
 const user= await checkAuth();
 if(!user)return;
@@ -23,12 +29,17 @@ const response= await fetch (`${API_BASE_URL}/api/users/${username}/lessons`,{
 });
 if(response.ok){
 document.getElementById("lesson-name").value="";
-console.log(newLesson);
 loadLessons();
 }else{
 alert("error adding lesson");
 }
 }
+/*
+  Loads all lessons of the current user and renders them
+ in the lesson list. Each lesson receives an "Alter" button
+  for editing and an "Add" button for adding its vocabulary
+  to the practice list.
+ */
 async function loadLessons() {
     const user= await checkAuth();
     if(!user)return;
@@ -66,8 +77,10 @@ list.innerHTML="";
     list.appendChild(li);
   });
 }
+/* deletes a lesson and redirects to the practice page
+*/
 export async function deleteLesson(){
-    const deleteButton = document.getElementById("delete-lesson");//delete-Button in alterlesson.html +redirect back to practise
+    const deleteButton = document.getElementById("delete-lesson");
   if (deleteButton) {
     const user= await checkAuth();
     if(!user)return;

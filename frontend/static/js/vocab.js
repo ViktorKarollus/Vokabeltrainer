@@ -1,5 +1,9 @@
 import {checkAuth} from "./auth.js";
 const API_BASE_URL = window.location.origin;
+/**
+  Initializes the vocabulary page by registering event
+  handlers and loading all vocabulary of the selected lesson.
+ */
 export function initVocab() {
 const addVocabForm = document.getElementById('add-vocab');
 if (addVocabForm) {
@@ -7,7 +11,10 @@ addVocabForm.addEventListener("submit", handleAddVocab);
 }
 loadVocab();
 }
-
+/**
+  Creates a new vocabulary entry in the currently selected lesson
+  and refreshes the vocabulary list.
+ */
 async function handleAddVocab(e) {
 e.preventDefault();
 const user= await checkAuth();
@@ -30,6 +37,10 @@ loadVocab();
 alert("error adding Vocab");
 }
 }
+/**
+ Loads all vocabulary of the selected lesson and renders
+  them in the vocabulary list.
+ */
 async function loadVocab() {
 const user= await checkAuth();
 if(!user)return;
@@ -70,7 +81,10 @@ async function deleteVocab(word_foreign){
 });
 await loadVocab();
 }
-
+/**
+  Parses a CSV file and converts each line into a vocabulary object.
+  Expected format: foreign_word,native_word
+ */
 async function getCsv(file){
 
     const text = await file.text();
@@ -87,6 +101,10 @@ const vocabList = lines.map(line => {
 });
 return vocabList;
 }
+/**
+  Imports vocabulary from a CSV file and stores all entries
+  in the currently selected lesson.
+ */
 export async function loadCsv(){
 const user= await checkAuth();
 if(!user)return;
