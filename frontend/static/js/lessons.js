@@ -58,10 +58,10 @@ list.innerHTML="";
     const li = document.createElement("li");
     li.textContent = lesson.lesson_name;
     const button=document.createElement("button");
-    button.textContent="Alter";
+    button.textContent="Ändern";
     button.style.marginLeft = "10px";
     const addbutton=document.createElement("button");
-    addbutton.textContent="add";
+    addbutton.textContent="Hinzufügen";
     addbutton.style.marginRight = "30px";
       addbutton.addEventListener("click", async () => {
       localStorage.setItem("lessonName", lesson.lesson_name);
